@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a39">
+  <meta name="description" content="Predict phase separation from formulation and processing inputs and export a PDF report.">
+  <title>Prediction of Phase Separation | Formulation Analytics</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <!-- Reusable icons: no external icon library, font, or network request needed. -->
+  <svg aria-hidden="true" class="svg-sprite" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Zm-9 10 9 5 9-5M3 17l9 5 9-5"/></symbol>
+    <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 2S5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13Z"/><path d="M9 16c.2 1.1 1.1 2 2.3 2.2"/></symbol>
+    <symbol id="i-thermometer" viewBox="0 0 24 24"><path d="M10 14V5a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0Z"/><path d="M12 10v7"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v7L4 20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1l-6-10V3M8 15h8"/></symbol>
+    <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 8c2 0 2-2 5-2s3 2 5 2 2-2 5-2 3 2 5 2M2 13c2 0 2-2 5-2s3 2 5 2 2-2 5-2 3 2 5 2M2 18c2 0 2-2 5-2s3 2 5 2 2-2 5-2 3 2 5 2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-7-7Z"/><path d="M13 2v7h7M8 14h8M8 18h8"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 9A7 7 0 0 1 18 7l2 5M4 12l2 5a7 7 0 0 0 12.5-2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5m0 3v.1"/></symbol>
+    <symbol id="i-hex" viewBox="0 0 24 24"><path d="M7 3h10l5 9-5 9H7l-5-9 5-9Z"/><circle cx="12" cy="12" r="4.5"/></symbol>
+  </svg>
+
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="brandmark" aria-hidden="true"><svg class="brand-icon"><use href="#i-hex"/></svg></div>
+      <div class="brand-copy"><strong>FORMULA<span>LAB</span></strong><small>Formulation intelligence</small></div>
+      <span class="topbar-chip"><span class="chip-dot"></span> Predictive analytics</span>
+    </header>
+
+    <main class="content">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-text">
+          <p class="eyebrow"><span class="eyebrow-line"></span> PHARMACEUTICAL FORMULATION SCIENCE</p>
+          <h1 id="page-title">Prediction of <em>Phase Separation</em></h1>
+          <p class="hero-subtitle">Assess formulation stability using machine learning. Enter six formulation and processing parameters to generate an outcome prediction.</p>
+          <div class="hero-points">
+            <span><svg><use href="#i-hex"/></svg> Six formulation variables</span>
+            <span><svg><use href="#i-file"/></svg> Exportable PDF report</span>
+          </div>
+        </div>
+        <div class="hero-graphic" aria-hidden="true">
+          <svg viewBox="0 0 260 230" fill="none">
+            <g stroke="#B5EEE6" stroke-width="2.5" stroke-linejoin="round" opacity=".78">
+              <path d="m105 45 41 23v46l-41 23-40-23V68l40-23Z"/><circle cx="105" cy="91" r="26"/>
+              <path d="m146 68 41-23 40 23v46l-40 23-41-23"/><circle cx="187" cy="91" r="26"/>
+              <path d="m65 114-36 20v39l35 20 35-20v-39"/><circle cx="64" cy="154" r="21"/>
+              <path d="M187 137v36l-31 18"/><path d="m156 191-36-19"/>
+              <circle cx="146" cy="68" r="5" fill="#65DBC7" stroke="none"/><circle cx="29" cy="134" r="4" fill="#65DBC7" stroke="none"/>
+            </g>
+            <circle cx="208" cy="183" r="27" fill="#1A5361" opacity=".6"/>
+            <path d="M197 183h22m-11-11v22" stroke="#7AE8D6" stroke-width="2" opacity=".8"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="workspace" aria-labelledby="inputs-title">
+        <div class="section-heading">
+          <div><p class="section-kicker">01 / FORMULATION DATA</p><h2 id="inputs-title">Enter formulation parameters</h2><p class="section-description">Provide the measurements for the formulation being evaluated. All six fields are required.</p></div>
+          <div class="required-pill"><span class="asterisk">*</span> All fields required</div>
+        </div>
+
+        {% if not model_available %}
+        <div class="notice notice-warning" role="status">
+          <svg><use href="#i-alert"/></svg>
+          <div><strong>Prediction model not yet installed</strong><p>{{ model_status }}</p></div>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="notice notice-error" role="alert"><svg><use href="#i-alert"/></svg><div><strong>Prediction could not be completed</strong><p>{{ error }}</p></div></div>
+        {% endif %}
+
+        <form id="prediction-form" action="{{ url_for('predict') }}" method="post" autocomplete="off">
+          <div class="form-grid">
+            {% for field in fields %}
+            <div class="field-card">
+              <div class="field-top"><span class="field-icon" aria-hidden="true"><svg><use href="#i-{{ field.icon }}"/></svg></span><div class="field-title"><label for="{{ field.key }}">{{ field.label }} <span class="required-star">*</span></label><small>{{ field.detail }}</small></div></div>
+              <div class="input-wrap"><input id="{{ field.key }}" name="{{ field.key }}" type="number" step="any" inputmode="decimal" placeholder="0.00" value="{{ values.get(field.key, '') }}" {% if field.nonnegative %}min="0"{% endif %} required aria-required="true"><span class="unit">{{ field.unit }}</span></div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="form-footer"><p><svg><use href="#i-spark"/></svg> Use values consistent with the range of the model's training data.</p><div class="action-buttons"><a href="{{ url_for('home') }}" class="btn btn-reset"><svg><use href="#i-refresh"/></svg> Clear fields</a><button type="submit" class="btn btn-primary" {% if not model_available %}disabled title="Add the original trained model first"{% endif %}><svg><use href="#i-spark"/></svg> Predict phase separation <svg class="arrow"><use href="#i-arrow"/></svg></button></div></div>
+        </form>
+      </section>
+
+      {% if result %}
+      <section id="prediction-result" class="result-card {{ 'result-positive' if result.separated else 'result-negative' }}" aria-live="polite">
+        <div class="result-heading"><div><p class="section-kicker">02 / MODEL OUTPUT</p><h2>Prediction result</h2></div><span class="result-status"><span class="status-dot"></span> Analysis complete</span></div>
+        <div class="result-body"><div class="outcome-icon"><svg><use href="{{ '#i-alert' if result.separated else '#i-check' }}"/></svg></div><div class="result-main"><p class="result-label">PREDICTED OUTCOME</p><h3>{{ result.label }}</h3><p>{{ result.summary }}</p></div></div>
+        <div class="result-bottom"><p>Generate a report with this prediction and every submitted input value.</p><form method="post" action="{{ url_for('download_report') }}" class="report-form">{% for field in fields %}<input type="hidden" name="{{ field.key }}" value="{{ values[field.key] }}">{% endfor %}<button class="btn btn-report" type="submit" name="mode" value="download"><svg><use href="#i-file"/></svg> Download PDF report <svg class="arrow"><use href="#i-arrow"/></svg></button><button class="btn btn-print" type="submit" name="mode" value="view" formtarget="_blank" title="Open the PDF in a new tab for printing"><svg><use href="#i-file"/></svg> Open &amp; print PDF</button></form></div>
+      </section>
+      {% else %}
+      <section class="empty-result" aria-label="Prediction status"><div class="empty-icon"><svg><use href="#i-hex"/></svg></div><div><strong>Your prediction will appear here</strong><p>Complete the fields above and select “Predict phase separation” to view the result and export a report.</p></div></section>
+      {% endif %}
+    </main>
+    <footer class="footer"><span>FORMULALAB · Formulation prediction workspace</span><span>Decision support only · Confirm findings through laboratory stability testing</span></footer>
+  </div>
+  {% if result %}<script>document.getElementById('prediction-result').scrollIntoView({behavior:'smooth',block:'center'});</script>{% endif %}
+</body>
+</html>

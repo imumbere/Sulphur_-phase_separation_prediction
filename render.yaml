@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: phase-separation-predictor
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    healthCheckPath: /health
